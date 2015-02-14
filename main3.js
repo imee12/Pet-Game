@@ -10,8 +10,9 @@ function Player (name) {
     console.log(sound)
   }
 
-
+  this.foodsupply= 0;
   this.love = 0;
+  this.pets= 0;
    //this.love = this.love + purrs;
   this.feed = function (food) {
     console.log(food)
@@ -140,12 +141,19 @@ $(".catch").on("click", function (event){
   console.log("catch button works");
   if (game.cat.energy > 100){
     console.log("Not this time!");
+    $(".catmsg").html('<h1> Not this time! <h1>')
+  //  $(".catenergy").html('<h1> Cat energy: ' + game.cat.energy + '<h1>')
   }else {
     console.log("Gotcha!")
+    game.character.pets = game.character.pets + 1;
 
     var purrs = Math.floor(Math.random() * 15);
     game.character.love= game.character.love + purrs;
-    console.log(game.character.love)
+    console.log(game.character.love);
+    console.log(purrs);
+    $(".love").html('<h1> Love: ' + game.character.love + '<h1>')
+    $(".catmsg").html('<h1> Gotcha! <h1>')
+    $(".pets").html('<h1> Cats: ' + game.character.pets + '<h1>')
     /// remove randomly from cat array
   }
 
@@ -157,6 +165,7 @@ $(".feed").on('click', function (event){
   var energy = Math.floor(Math.random() * 12);
 
   game.cat.energy= game.cat.energy + energy;
+  $(".catenergy").html('<h1> Cat energy: ' + game.cat.energy + '<h1>')
   console.log(game.cat.energy)
 });
 
@@ -166,6 +175,7 @@ $(".run").on('click', function (event){
 
   var energy = Math.floor(Math.random() * 20);
   game.cat.energy = game.cat.energy - energy;
+  $(".catenergy").html('<h1> Cat energy: ' + game.cat.energy + '<h1>')
   console.log(game.cat.energy)
 });
 
@@ -176,11 +186,23 @@ $(".play").on('click', function (event){
   var energy = Math.floor(Math.random() * 20);
   game.dog.energy = game.dog.energy - energy;
   console.log(game.dog.energy)
-
+  $(".dogenergy").html('<h1> Dog energy: ' + game.dog.energy + '<h1>')
   var licks = Math.floor(Math.random() * 30);
   game.character.love = game.character.love + licks;
   console.log(game.character.love)
+  $(".love").html('<h1> Love: ' + game.character.love + '<h1>')
 });
+
+$(".dogfood").on('click', function (event){
+  event.preventDefault();
+  console.log("feed button works");
+  var energy = Math.floor(Math.random() * 12);
+
+  game.dog.energy= game.dog.energy + energy;
+  $(".dogenergy").html('<h1> Dog energy: ' + game.dog.energy + '<h1>')
+  console.log(game.cat.energy)
+});
+
 
 
   }
