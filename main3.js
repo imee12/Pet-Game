@@ -154,6 +154,7 @@ $(".catch").on("click", function (event){
     $(".love").html('<h1> Love: ' + game.character.love + '<h1>')
     $(".catmsg").html('<h1> Gotcha! <h1>')
     $(".pets").html('<h1> Cats: ' + game.character.pets + '<h1>')
+    $(".meow").trigger('play');
     /// remove randomly from cat array
   }
 
