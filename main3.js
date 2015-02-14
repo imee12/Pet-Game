@@ -13,6 +13,7 @@ function Player (name) {
   this.foodsupply= 0;
   this.love = 0;
   this.pets= 0;
+  this.dogs=0;
    //this.love = this.love + purrs;
   this.feed = function (food) {
     console.log(food)
@@ -203,6 +204,37 @@ $(".dogfood").on('click', function (event){
   $(".dogenergy").html('<h1> Dog energy: ' + game.dog.energy + '<h1>')
   console.log(game.cat.energy)
 });
+
+
+$(".chewtoy").on("click", function (event){
+  event.preventDefault();
+  console.log("catch button works");
+  if (game.dog.energy > 100){
+    console.log("Not this time!");
+    $(".catmsg").html('<h1> Not this time! <h1>')
+  //  $(".catenergy").html('<h1> Cat energy: ' + game.cat.energy + '<h1>')
+  }else {
+    console.log("Gotcha!")
+    game.character.dogs = game.character.dogs + 1;
+
+    var purrs = Math.floor(Math.random() * 15);
+    game.character.love= game.character.love + purrs;
+    console.log(game.character.love);
+    console.log(purrs);
+    $(".love").html('<h1> Love: ' + game.character.love + '<h1>')
+    $(".catmsg").html('<h1> Gotcha! <h1>')
+    $(".dogs").html('<h1> Dogs: ' + game.character.dogs + '<h1>')
+  //  $(".meow").trigger('play');
+    /// remove randomly from cat array
+  }
+
+});
+
+
+
+
+
+
 
 
 
