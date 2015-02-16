@@ -168,6 +168,7 @@ $(".feed").on('click', function (event){
 
   game.cat.energy= game.cat.energy + energy;
   $(".catenergy").html('<h1> Cat energy: ' + game.cat.energy + '<h1>')
+  $(".meow2").trigger('play');
   console.log(game.cat.energy)
 });
 
@@ -192,7 +193,8 @@ $(".play").on('click', function (event){
   var licks = Math.floor(Math.random() * 30);
   game.character.love = game.character.love + licks;
   console.log(game.character.love)
-  $(".love").html('<h1> Love: ' + game.character.love + '<h1>')
+  $(".love").html('<h1> Love: ' + game.character.love + '<h1>');
+  $(".bark").trigger('play');
 });
 
 $(".dogfood").on('click', function (event){
@@ -224,7 +226,7 @@ $(".chewtoy").on("click", function (event){
     $(".love").html('<h1> Love: ' + game.character.love + '<h1>')
     $(".catmsg").html('<h1> Gotcha! <h1>')
     $(".dogs").html('<h1> Dogs: ' + game.character.dogs + '<h1>')
-  //  $(".meow").trigger('play');
+    $(".bark2").trigger('play');
     /// remove randomly from cat array
   }
 
